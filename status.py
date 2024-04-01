@@ -20,7 +20,7 @@ def back(image_number):
     global forward_button
 
     my_label.grid_forget()
-    my_label = Label(image=image_list[image_number -1])
+    my_label = Label(image=image_list[image_number - 1])
     forward_button = Button(root, text=">>", command=forward(image_number - 1))
     back_button = Button(root, text="<<", command=back(image_number - 1))
 
