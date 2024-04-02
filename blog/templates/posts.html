@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px; /* Add margin to the body for spacing */
+        }
+        .head {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        section {
+            margin-bottom: 20px; /* Add margin to create spacing between sections */
+            padding: 10px; /* Add padding to sections for additional spacing */
+            background-color: #ffffff; /* Add a background color to distinguish sections */
+        }
+
+
+    </style>
+    <h1 class="head">President Oenga's Blog</h1>
+</head>
+<body>
+
+<section>
+    <div>
+        <h2>{{posts.title}}</h2>
+        <p>{{posts.created_at}}</p>
+        <p>{{posts.text}}</p>
+    </div>
+</section>
+
+
+</body>
+</html>
