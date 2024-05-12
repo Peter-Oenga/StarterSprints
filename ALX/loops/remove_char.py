@@ -7,6 +7,7 @@ def remove_char_at(str, n):
             str1 += str[x]
     return str1
 
+
 print(remove_char_at("Best School", 3))
 print(remove_char_at("Chicago", 2))
 print(remove_char_at("C is fun!", 0))
