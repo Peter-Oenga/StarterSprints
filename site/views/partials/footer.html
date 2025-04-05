@@ -1,0 +1,49 @@
+<div class="clearfix"></div>
+<footer id="footer" class="footer invisible">
+  <div class="container mt-40 pb-60 pt-20">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="font-20 mb-10">Contact Us</div>
+        <b>Phone:</b><br />
+        {{ globals.contact_info.metadata.phone }}<br />
+        <b>Email:</b><br />
+        <a href="mailto:{{ globals.contact_info.metadata.email }}">{{ globals.contact_info.metadata.email }}</a>
+        <br />
+        <b>Address:</b><br />
+        {{{ globals.contact_info.metadata.address }}}
+      </div>
+      <div class="col-sm-4">
+        <div class="font-20 mb-20">Connect</div>
+        <div class="mb-20">
+          <a class="mr-10" href="{{ globals.social.metadata.facebook }}" target="_blank">
+            <i class="fa fa-facebook font-26"></i>
+          </a>
+          <a class="mr-10" href="{{ globals.social.metadata.twitter }}" target="_blank">
+            <i class="fa fa-twitter font-26"></i>
+          </a>
+          <a class="mr-10" href="{{ globals.social.metadata.google_plus }}" target="_blank">
+            <i class="fa fa-google-plus font-26"></i>
+          </a>
+        </div>
+        <div class="mb-20">
+          &copy; {{ year }} {{ globals.footer.metadata.company_title }}
+        </div>
+        <a href="https://cosmicjs.com" target="_blank">
+          <img class="pull-left mr-15 relative" src="https://cosmicjs.com/images/logo.svg" width="28" height="28">
+          <span style="color: #666">Proudly powered by Cosmic JS</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{^ is_dev }}
+    <script src="/js/combined.min.js"></script>
+  {{/ is_dev }}
+  {{# is_dev }}
+    <script src="/js/0-jquery.min.js"></script>
+    <script src="/js/1-jquery.mask.js"></script>
+    <script src="/js/2-bootstrap.min.js"></script>
+    <script src="/js/3-main.js"></script>
+  {{/ is_dev }}
+</footer>
+</body>
+</html>

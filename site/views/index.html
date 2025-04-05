@@ -1,0 +1,64 @@
+{{> header }}
+  <main id="main">
+    <section id="carousel">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          {{# page.metadata.carousel }}
+            <li data-target="#carousel-example-generic" data-slide-to="{{ index }}"{{# is_first }} class="active"{{/ is_first }}></li>
+          {{/ page.metadata.carousel }}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          {{# page.metadata.carousel }}
+            <div class="item{{# is_first }} active{{/ is_first }}" style="background-image: url({{ image.imgix_url }}?w=1200); background-size: cover; width: 100%; height: 500px; background-position: center"></div>
+          {{/ page.metadata.carousel }}
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
+    <section id="headlines" class="pt-40 pb-40 text-center">
+      <div>
+        <h2 class="text-primary font-40">
+          {{ page.metadata.headline }}
+        </h2>
+        <div class="font-20">
+          {{ page.metadata.subheadline }}
+        </div>
+      </div>
+    </section>
+    <section id="blurbs" class="pt-40">
+      <div>
+        {{# page.metadata.blurbs }}
+          <div class="col-sm-4 text-center">
+            <div class="mb-20 font-26">{{ title }}</div>
+            <div class="mb-20">
+              <div class="w-300 h-300 img-circle center-block" style="background-image: url({{ image.imgix_url }}?w=600); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="mb-20 font-16 p-15">{{ content }}</div>
+          </div>
+        {{/ page.metadata.blurbs }}
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+    </section>
+    <section id="cta" class="pt-40 pb-40 text-center">
+      <h2 class="text-primary font-40">
+        {{ page.metadata.call_to_action_text }}
+      </h2>
+      <div class="font-20 mb-20">
+        {{ page.metadata.call_to_action_subtext }}
+      </div>
+      <div class="font-20">
+        <a class="btn btn-default btn-lg" href="{{ page.metadata.call_to_action_button_link }}">
+          {{ page.metadata.call_to_action_button_text }}
+        </a>
+      </div>
+    </section>
+  </main>
+{{> footer }}
