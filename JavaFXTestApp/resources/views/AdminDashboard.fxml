@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8"
+      fx:controller="com.foodordering.controllers.AdminDashboardController"
+      alignment="CENTER" spacing="15">
+
+    <Label text="Admin Dashboard" style="-fx-font-size: 16px;" />
+    <Button text="Generate Sales Report" onAction="#handleGenerateReport"/>
+    <Label fx:id="reportStatusLabel" textFill="green"/>
+</VBox>

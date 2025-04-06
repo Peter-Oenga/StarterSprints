@@ -1,0 +1,54 @@
+.menu-combo, .input-field {
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-border-color: #ddd;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+}
+
+.order-btn {
+    -fx-background-color: linear-gradient(to right, #ff7043, #ff5722);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 8, 0.3, 0, 4);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.order-btn:hover {
+    -fx-background-color: linear-gradient(to right, #ff5722, #e64a19);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.login-input {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0.0, 0, 2);
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to right, #ff7043, #ff5722);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.2, 0, 3);
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #ff5722, #e64a19);
+}

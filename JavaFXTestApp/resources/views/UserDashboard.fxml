@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodordering.controllers.UserDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-image: url('/assets/bg.jpeg');
+                   -fx-background-size: cover;
+                   -fx-background-position: center;
+                   -fx-padding: 30;">
+
+    <VBox alignment="TOP_CENTER" spacing="30" AnchorPane.topAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <Label text="Welcome to Foodie's Paradise!" style="-fx-font-size: 34px; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Label text="Select Your Favorite Meal" style="-fx-font-size: 18px; -fx-text-fill: #eeeeee;" />
+
+        <!-- Food Grid -->
+        <GridPane hgap="38" vgap="38" alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+            <ColumnConstraints minWidth="110" prefWidth="110" maxWidth="110" />
+        </columnConstraints>
+
+
+            <!-- Row 1 -->
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <image><Image url="/assets/burger.jpg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <image><Image url="/assets/pizza.jpeg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                <image><Image url="/assets/sushi.jpg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="3">
+                <image><Image url="/assets/salad.jpg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="4">
+                <image><Image url="/assets/chicken.jfif"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="0" GridPane.columnIndex="5">
+                <image><Image url="/assets/fries.jpg"/></image>
+            </ImageView>
+
+            <!-- Row 2 -->
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <image><Image url="/assets/pancakes.jpg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                <image><Image url="/assets/noodles.jpg"/></image>
+            </ImageView>
+            <ImageView fitWidth="110" fitHeight="110" GridPane.rowIndex="1" GridPane.columnIndex="2">
+                <image><Image url="/assets/sandwich.jpg"/></image>
+            </ImageView>
+        </GridPane>
+
+        <!-- Input Form -->
+        <VBox alignment="CENTER" spacing="15">
+            <ComboBox fx:id="itemComboBox" promptText="Choose your meal" styleClass="menu-combo" prefWidth="300"/>
+            <TextField fx:id="amountField" promptText="Enter total amount" styleClass="input-field" prefWidth="300"/>
+            <Button fx:id="placeOrderBtn" text="Place Order" onAction="#handlePlaceOrder" styleClass="order-btn" prefWidth="200"/>
+            <Label fx:id="statusLabel" style="-fx-text-fill: #66ff66; -fx-font-size: 14px;" />
+        </VBox>
+
+    </VBox>
+</AnchorPane>
