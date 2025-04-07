@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodordering.controllers.ReceiptController"
+            prefWidth="450" prefHeight="400"
+            style="-fx-background-color: #ffffff;">
+
+    <VBox alignment="TOP_CENTER" spacing="15">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <Label text="✅ Order Receipt"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+        <TextArea fx:id="receiptText"
+                  editable="false"
+                  wrapText="true"
+                  prefHeight="280"
+                  style="-fx-font-size: 14px;" />
+
+        <Button text="Close"
+                onAction="#handleClose"
+                styleClass="order-btn"
+                prefWidth="120" />
+    </VBox>
+</AnchorPane>
