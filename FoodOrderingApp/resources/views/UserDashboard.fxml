@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodordering.controllers.UserDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-image: url('/assets/bg.jpeg');
+                   -fx-background-size: cover;
+                   -fx-background-position: center;
+                   -fx-padding: 30;">
+
+    <VBox alignment="TOP_CENTER" spacing="30" AnchorPane.topAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <Label text="Welcome to Foodie's Paradise!" style="-fx-font-size: 34px; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Label text="Select Your Favorite Meal" style="-fx-font-size: 18px; -fx-text-fill: #eeeeee;" />
+
+        <Label fx:id="cartStatusLabel"
+               text="Cart: 0 items"
+               style="-fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"
+               alignment="CENTER_RIGHT"
+               AnchorPane.rightAnchor="20" />
+
+<!--        <Button text="🛒 View Cart Summary"-->
+<!--                onAction="#handleViewCart"-->
+<!--                styleClass="order-btn"-->
+<!--                prefWidth="200"/>-->
+        <Button text="🛒 View Cart" onAction="#openCartModal" styleClass="order-btn" prefWidth="200"/>
+
+
+        <Label fx:id="cartSummaryLabel"
+               text="Your cart is empty."
+               wrapText="true"
+               style="-fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10;" />
+
+
+
+        <!-- Food Grid -->
+        <GridPane hgap="20" vgap="25" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+                <ColumnConstraints minWidth="140" prefWidth="140" maxWidth="140" />
+            </columnConstraints>
+
+            <!-- Food Cards -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/burger.jpg"/></image>
+                </ImageView>
+                <Label text="Burger - $5.99" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/pizza.jpeg"/></image>
+                </ImageView>
+                <Label text="Pizza - $6.49" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/sushi.jpg"/></image>
+                </ImageView>
+                <Label text="Sushi - $7.99" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="3" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/salad.jpg"/></image>
+                </ImageView>
+                <Label text="Salad - $4.49" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="4" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/chicken.jfif"/></image>
+                </ImageView>
+                <Label text="Chicken - $6.99" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="5" GridPane.rowIndex="0" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/fries.jpg"/></image>
+                </ImageView>
+                <Label text="Fries - $2.99" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <!-- Row 2 -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/pancakes.jpg"/></image>
+                </ImageView>
+                <Label text="Pancakes - $5.49" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/noodles.jpg"/></image>
+                </ImageView>
+                <Label text="Noodles - $4.99" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="CENTER" spacing="8" styleClass="food-card" onMouseClicked="#handleFoodClick">
+                <ImageView fitWidth="110" fitHeight="110">
+                    <image><Image url="/assets/sandwich.jpg"/></image>
+                </ImageView>
+                <Label text="Sandwich - $5.25" styleClass="food-label"/>
+                <Button text="Add to Cart" onAction="#handleAddToCart" styleClass="cart-button"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Input Form -->
+        <VBox alignment="CENTER" spacing="15">
+            <ComboBox fx:id="itemComboBox" promptText="Choose your meal" styleClass="menu-combo" prefWidth="300"/>
+            <TextField fx:id="amountField" promptText="Enter total amount" styleClass="input-field" prefWidth="300"/>
+            <Button fx:id="placeOrderBtn" text="Place Order" onAction="#handlePlaceOrder" styleClass="order-btn" prefWidth="200"/>
+            <Label fx:id="statusLabel" style="-fx-text-fill: #66ff66; -fx-font-size: 14px;" />
+        </VBox>
+
+    </VBox>
+</AnchorPane>

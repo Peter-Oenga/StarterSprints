@@ -1,0 +1,115 @@
+/* ====================== FORM ELEMENTS ====================== */
+
+.menu-combo, .input-field {
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-border-color: #ddd;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+}
+
+/* ======================= ORDER BUTTON ====================== */
+
+.order-btn {
+    -fx-background-color: linear-gradient(to right, #ff7043, #ff5722);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 8, 0.3, 0, 4);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.order-btn:hover {
+    -fx-background-color: linear-gradient(to right, #ff5722, #e64a19);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* ======================= FOOD CARD STYLE ====================== */
+
+.food-card {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-border-color: #ffffff22;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.2, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.food-card:hover {
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ======================= FOOD LABEL ====================== */
+
+.food-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* ======================= ADD TO CART BUTTON ====================== */
+
+.cart-button {
+    -fx-background-color: #ff7043;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 6 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 2);
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.cart-button:hover {
+    -fx-background-color: #e64a19;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* ====================== LOGIN STYLES ====================== */
+
+.login-input {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 14px;
+    -fx-padding: 10 14;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0.0, 0, 2);
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to right, #ff7043, #ff5722);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.2, 0, 3);
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #ff5722, #e64a19);
+}
+
+#cartStatusLabel {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
