@@ -6,26 +6,34 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.foodordering.controllers.ReceiptController"
-            prefWidth="450" prefHeight="400"
-            style="-fx-background-color: #ffffff;">
+            prefWidth="480" prefHeight="420"
+            style="-fx-background-color: #fefefe;">
 
-    <VBox alignment="TOP_CENTER" spacing="15">
+    <VBox alignment="TOP_CENTER" spacing="20">
         <padding>
-            <Insets top="20" right="20" bottom="20" left="20"/>
+            <Insets top="25" right="25" bottom="25" left="25"/>
         </padding>
 
+        <!-- Title -->
         <Label text="✅ Order Receipt"
-               style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
 
-        <TextArea fx:id="receiptText"
-                  editable="false"
-                  wrapText="true"
-                  prefHeight="280"
-                  style="-fx-font-size: 14px;" />
+        <!-- Scrollable receipt area -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="280">
+            <TextArea fx:id="receiptText"
+                      editable="false"
+                      wrapText="true"
+                      style="-fx-font-size: 14px; -fx-control-inner-background: #fafafa; -fx-text-fill: #333333; -fx-border-color: #ddd;"
+                      prefHeight="280"
+                      prefWidth="400"/>
+        </ScrollPane>
 
-        <Button text="Close"
-                onAction="#handleClose"
-                styleClass="order-btn"
-                prefWidth="120" />
+        <!-- Button area -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Close"
+                    onAction="#handleClose"
+                    styleClass="order-btn"
+                    prefWidth="140" />
+        </HBox>
     </VBox>
 </AnchorPane>

@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class CartController {
 
@@ -25,9 +26,6 @@ public class CartController {
         refreshCartView();
     }
 
-    /**
-     * Populates the ListView with cart items, each in its own HBox with a Remove button.
-     */
     private void refreshCartView() {
         cartListView.getItems().clear();
 
@@ -71,16 +69,45 @@ public class CartController {
 
         try {
             Connection conn = DatabaseConnection.getInstance();
-            PreparedStatement stmt = conn.prepareStatement(
-                    "INSERT INTO Orders(user_id, total_amount, status) VALUES (?, ?, 'PLACED')"
-            );
-            stmt.setInt(1, 1); // Replace with real user session if needed
-            stmt.setDouble(2, CartService.getTotalAmount());
-            stmt.executeUpdate();
 
-            showReceiptWindow(); // ✅ Show receipt view
-            CartService.clearCart(); // ✅ Clear cart after placing order
-            refreshCartView(); // ✅ Refresh the UI
+            // 1. Insert into Orders table
+            PreparedStatement orderStmt = conn.prepareStatement(
+                    "INSERT INTO Orders(user_id, total_amount, status) VALUES (?, ?, 'PLACED')",
+                    PreparedStatement.RETURN_GENERATED_KEYS
+            );
+            orderStmt.setInt(1, 1); // TEMP: replace with actual user ID
+            orderStmt.setDouble(2, CartService.getTotalAmount());
+            orderStmt.executeUpdate();
+
+            int orderId;
+            try (ResultSet generatedKeys = orderStmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    orderId = generatedKeys.getInt(1);
+                } else {
+                    throw new IllegalStateException("Failed to retrieve order ID.");
+                }
+            }
+
+            // 2. Insert items into OrderItems table
+            PreparedStatement itemStmt = conn.prepareStatement(
+                    "INSERT INTO OrderItems(order_id, item_name, item_price) VALUES (?, ?, ?)"
+            );
+
+            for (CartItem item : CartService.getItems()) {
+                itemStmt.setInt(1, orderId);
+                itemStmt.setString(2, item.getName());
+                itemStmt.setDouble(3, item.getPrice());
+                itemStmt.addBatch();
+            }
+
+            itemStmt.executeBatch();
+
+            // 3. Show receipt modal
+            showReceiptWindow();
+
+            // 4. Clear and refresh cart
+            CartService.clearCart();
+            refreshCartView();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,15 +115,6 @@ public class CartController {
         }
     }
 
-    @FXML
-    public void handleClose() {
-        Stage stage = (Stage) cartListView.getScene().getWindow();
-        stage.close();
-    }
-
-    /**
-     * Opens the receipt screen in a modal window after successful checkout.
-     */
     private void showReceiptWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Receipt.fxml"));
@@ -111,6 +129,12 @@ public class CartController {
             e.printStackTrace();
             showAlert("Error", "Could not load receipt view.");
         }
+    }
+
+    @FXML
+    public void handleClose() {
+        Stage stage = (Stage) cartListView.getScene().getWindow();
+        stage.close();
     }
 
     private void showAlert(String title, String message) {

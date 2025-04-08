@@ -11,24 +11,40 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptController {
 
-    @FXML private TextArea receiptText;
+    @FXML
+    private TextArea receiptText;
 
     @FXML
     public void initialize() {
         StringBuilder receipt = new StringBuilder();
 
-        receipt.append("🧾 Foodie's Paradise - Order Receipt\n\n");
-        receipt.append("Date: ")
-                .append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
-                .append("\n\n");
+        // Header
+        receipt.append("        🧾 Foodie's Paradise\n");
+        receipt.append("      ---------------------------\n\n");
 
-        for (CartItem item : CartService.getItems()) {
-            receipt.append("• ").append(item.getDisplay()).append("\n");
+        // Timestamp
+        String date = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        receipt.append("Date: ").append(date).append("\n\n");
+
+        // Items
+        if (CartService.isEmpty()) {
+            receipt.append("Your cart was empty.\n");
+        } else {
+            receipt.append("Items:\n");
+            for (CartItem item : CartService.getItems()) {
+                receipt.append("• ").append(item.getDisplay()).append("\n");
+            }
         }
 
-        receipt.append("\n-------------------------\n");
-        receipt.append("Total: $").append(String.format("%.2f", CartService.getTotalAmount()));
-        receipt.append("\n\nThank you for your order!");
+        // Divider & total
+        receipt.append("\n---------------------------\n");
+        receipt.append("Total: $").append(String.format("%.2f", CartService.getTotalAmount())).append("\n");
+        receipt.append("---------------------------\n");
+
+        // Footer
+        receipt.append("\nThank you for ordering with us!\n");
+        receipt.append("Enjoy your meal 🍽️");
 
         receiptText.setText(receipt.toString());
     }

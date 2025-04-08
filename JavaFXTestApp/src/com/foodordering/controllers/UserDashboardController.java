@@ -135,7 +135,7 @@ public class UserDashboardController {
             statusLabel.setText(name + " added to cart.");
 
             handleViewCart();
-            
+
         } catch (Exception e) {
             statusLabel.setText("Failed to add to cart.");
             e.printStackTrace();
