@@ -16,14 +16,17 @@
     <header>
         <div>
             <h1>{{ post['title']}}</h1>
+            <!-- Shows the author's username and post date in format like 2025-04-11 -->
             <div class="about">by {{ post['username']}} on {{ post['created'].strftime('%Y-%m-%d')}}</div>
         </div>
+        <!-- Check if the logged in user is the author of the blog -->
         {% if g.user['id'] == post['author_id']%}
         <a class="action" href="{{ url_for('blog.update', id=post['id']) }}"></a>
         {% endif %}
     </header>
     <p class="body">{{ post['body'] }}</p>
 </article>
+<!-- Adds a horizontal line between posts but not after the last -->
 {% if not loop.last %}
 <hr>
 {% endif %}
