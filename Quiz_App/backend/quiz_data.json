@@ -1,0 +1,17 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_answer": "Paris"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["Earth", "Jupiter", "Mars", "Saturn"],
+        "correct_answer": "Jupiter"
+    },
+    {
+        "question": "Which programming language is used for iOS development?",
+        "options": ["Swift", "Java", "C#", "Python"],
+        "correct_answer": "Swift"
+    }
+]
