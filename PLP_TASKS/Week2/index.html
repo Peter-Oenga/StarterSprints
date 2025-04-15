@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multimedia-Rich HTML5 Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      padding: 8px;
+      width: 100%;
+      margin-top: 5px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Our Demo Page</h1>
+
+  <!-- Ordered List with Roman Numerals -->
+  <section>
+    <h2>Getting Started Steps</h2>
+    <ol type="I">
+      <li>Register an account</li>
+      <li>Verify your email</li>
+      <li>Login to your dashboard</li>
+    </ol>
+  </section>
+
+  <!-- External Image from Pexels -->
+  <section>
+    <h2>Featured Image</h2>
+    <img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg" 
+         alt="Nature Landscape from Pexels" 
+         width="600">
+  </section>
+
+  <!-- Table of Contacts -->
+  <section>
+    <h2>Contact List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Mobile</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alice Green</td>
+          <td>123 Forest Lane</td>
+          <td>+1234567890</td>
+          <td>alice@example.com</td>
+        </tr>
+        <tr>
+          <td>Bob Carter</td>
+          <td>456 Ocean Blvd</td>
+          <td>+1987654321</td>
+          <td>bob@example.com</td>
+        </tr>
+        <tr>
+          <td>Charlie Rose</td>
+          <td>789 Mountain Rd</td>
+          <td>+1122334455</td>
+          <td>charlie@example.com</td>
+        </tr>
+        <tr>
+          <td>Debbie Lane</td>
+          <td>135 Valley Ave</td>
+          <td>+1223344556</td>
+          <td>debbie@example.com</td>
+        </tr>
+        <tr>
+          <td>Eric White</td>
+          <td>246 River St</td>
+          <td>+1334455667</td>
+          <td>eric@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Registration Form -->
+  <section>
+    <h2>Register Now</h2>
+    <form>
+      <!-- Name -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Min. 6 characters" minlength="6" required>
+
+      <!-- Date of Birth -->
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <!-- Gender (Radio) -->
+      <label>Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label>
+
+      <!-- Country (Dropdown) -->
+      <label for="country">Country:</label>
+      <select id="country" name="country" required>
+        <option value="">-- Select Country --</option>
+        <option value="uk">United Kingdom</option>
+        <option value="us">United States</option>
+        <option value="ca">Canada</option>
+      </select>
+
+      <!-- Interests (Checkboxes) -->
+      <label>Interests:</label>
+      <input type="checkbox" id="news" name="interest" value="news">
+      <label for="news">News</label>
+      <input type="checkbox" id="sports" name="interest" value="sports">
+      <label for="sports">Sports</label>
+      <input type="checkbox" id="music" name="interest" value="music">
+      <label for="music">Music</label>
+
+      <input type="submit" value="Register">
+    </form>
+  </section>
+
+  <!-- Audio and Video -->
+  <section>
+    <h2>Listen & Watch</h2>
+
+    <!-- Audio -->
+    <p>Enjoy this music:</p>
+    <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Video -->
+    <p>Watch this sample video:</p>
+    <video width="600" controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+</body>
+</html>
