@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886012629634",
+    "project_id": "widgetimageslider",
+    "storage_bucket": "widgetimageslider.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886012629634:android:1d150accc6fb5677515a9b",
+        "android_client_info": {
+          "package_name": "com.example.widgetimageslider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJpzqN910xAp9TPx0yzxttFESb4ogk-Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

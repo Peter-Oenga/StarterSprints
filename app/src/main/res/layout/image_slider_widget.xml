@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg_rounded"
+    android:padding="10dp"
+    android:elevation="6dp">
+
+
+    <ImageView
+        android:id="@+id/widget_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="#FFFFFF"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Left Button -->
+    <ImageButton
+        android:id="@+id/button_prev"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/nav_button_bg"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_media_previous"
+        />
+
+    <!-- Right Button -->
+    <ImageButton
+        android:id="@+id/button_next"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/nav_button_bg"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_media_next"
+        />
+
+    <TextView
+        android:id="@+id/demoStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waiting for push..."
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
