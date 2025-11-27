@@ -22,7 +22,6 @@ Below is a preview of what the app looks like when running:
 
 ![App Preview](./image.png)
 
-> Make sure this file is placed in the **same folder** as `README.md` and named exactly `image.png`.
 
 ---
 
