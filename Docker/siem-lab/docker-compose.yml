@@ -1,0 +1,106 @@
+networks:
+  siem-net:
+
+volumes:
+  mongo_data:
+  opensearch_data:
+  wazuh_indexer_data:
+
+services:
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - siem-net
+
+  opensearch:
+    image: opensearchproject/opensearch:2.12.0
+    environment:
+      - cluster.name=siem-opensearch
+      - discovery.type=single-node
+      - node.name=opensearch
+      - plugins.security.disabled=true
+      - OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Monchy.190.180
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - siem-net
+    restart: always
+
+  graylog:
+    image: graylog/graylog:6.0
+    depends_on:
+      - mongodb
+      - opensearch
+    environment:
+      GRAYLOG_PASSWORD_SECRET: "supersecretpassword"
+      GRAYLOG_ROOT_PASSWORD_SHA2: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"
+      GRAYLOG_HTTP_EXTERNAL_URI: "http://localhost:9000/"
+      GRAYLOG_ELASTICSEARCH_HOSTS: "http://opensearch:9200"
+      GRAYLOG_MONGODB_URI: "mongodb://mongodb:27017/graylog"
+    ports:
+      - "9000:9000"
+      - "12201:12201/udp"
+      - "12201:12201/tcp"
+      - "5140:5140/udp"
+    networks:
+      - siem-net
+    restart: always
+
+  wazuh-manager:
+    image: wazuh/wazuh-manager:4.7.0
+    hostname: wazuh-manager
+    restart: always
+    ports:
+      - "1514:1514/udp"
+      - "1515:1515/tcp"
+      - "55000:55000/tcp"
+    environment:
+      - WAZUH_CLUSTER=disabled
+    networks:
+      - siem-net
+
+  wazuh-dashboard:
+    image: wazuh/wazuh-dashboard:4.7.0
+    depends_on:
+      - wazuh-manager
+    environment:
+      - WAZUH_API_URL=http://wazuh-manager:55000
+      - DASHBOARD_USERNAME=admin
+      - DASHBOARD_PASSWORD=admin
+      - API_USERNAME=admin
+      - API_PASSWORD=admin
+    ports:
+      - "5601:5601"
+    networks:
+      - siem-net
+    restart: always
+
+  wazuh-indexer:
+    image: wazuh/wazuh-indexer:4.7.0
+    hostname: wazuh.indexer
+    environment:
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g
+      - node.name=wazuh-indexer
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=StrongAdmin@12345
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - wazuh_indexer_data:/usr/share/opensearch/data
+    ports:
+      - "9201:9200"
+    networks:
+      - siem-net
